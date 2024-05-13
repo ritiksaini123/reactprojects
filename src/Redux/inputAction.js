@@ -12,10 +12,10 @@ export const postDataSuccess=(inputs)=>{
         };
     
     };
-    export const postDataFailure=(error)=>{
+    export const postDataFailure=(inputs)=>{
         return{
                 type:POST_DATA_FAILURE,
-                payload:error
+                payload:inputs
             };
         
         };

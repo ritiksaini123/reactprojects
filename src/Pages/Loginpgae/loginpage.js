@@ -34,7 +34,7 @@ const dispatch=useDispatch()
         if (defaultInfo['email'] === email && defaultInfo['password'] === password) {
 
             dispatch({type:POST_DATA_SUCCESS,payload:{email,password}})
-            navigate('/home')
+            navigate('/')
 
         }
         else {
