@@ -1,23 +1,19 @@
-// export function About(){
-//     return(
-//         <h2>about</h2>
-//     )
-// }
-import { useContext } from "react"
+
 import { Logininfo } from "../context/context"
-import { Connect } from "react-redux";
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-
-
+import { UseSelector, useSelector } from "react-redux"
 export function About(){
-    const {email,password}=useContext(Logininfo)
+    const data=useSelector((state)=>{
+        return (
+            state.inputs
+        )
+        
+    })
     return(
         <div>
         <h2>about</h2>
-        <p>emaiil is:{email}</p>
-        <p>password is:{password}</p>
+        <p>emaiil is:{data.email}</p>
+        <p>password is:{data.password}</p>
+        
         </div>
     )
 }
-

@@ -4,11 +4,11 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { UseDispatch,useDispatch,useSelector } from "react-redux";
+import { UseDispatch, useDispatch, useSelector } from "react-redux";
 import { POST_DATA_SUCCESS } from '../../Redux/inputAction';
 
 export function Login() {
-const dispatch=useDispatch()
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const defaultInfo = { email: "admin@mail.com", password: '123456' }
     const [email, setEmail] = useState('')
@@ -29,19 +29,19 @@ const dispatch=useDispatch()
         else {
             setPassError(false)
         }
-        if(email && password){
-        setInput({ email, password })
-        if (defaultInfo['email'] === email && defaultInfo['password'] === password) {
+        if (email && password) {
+            setInput({ email, password })
+            if (defaultInfo['email'] === email && defaultInfo['password'] === password) {
 
-            dispatch({type:POST_DATA_SUCCESS,payload:{email,password}})
-            navigate('/')
+                dispatch({ type: POST_DATA_SUCCESS, payload: { email, password } })
+                navigate('/')
 
+            }
+            else {
+
+                toast.error('invalid detail')
+            }
         }
-        else {
-
-            toast.error('invalid detail')
-        }
-    }
     }
     return (
         <div className={style.container}>
@@ -57,7 +57,6 @@ const dispatch=useDispatch()
                 {passError ? <span>password should not be empty</span> : ''}
             </div>
             <button onClick={controllInput}>Login</button>
-            {/* {console.log(input)} */}
             <ToastContainer />
         </div>
     )

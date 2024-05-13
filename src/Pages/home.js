@@ -8,7 +8,6 @@ export function Home(){
         )
         
     })
-    // {console.log(data)}
     return(
         <div>
         <h2>home</h2>
